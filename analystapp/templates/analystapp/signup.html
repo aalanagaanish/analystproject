@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0">
+
+    <title>AnalystApp | Signup</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:#0f172a;
+            color:white;
+        }
+
+        .container{
+            width:400px;
+            padding:40px;
+            border-radius:16px;
+            background:#1e293b;
+            box-shadow:0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:10px;
+        }
+
+        p{
+            text-align:center;
+            color:#94a3b8;
+            margin-bottom:25px;
+        }
+
+        .error-msg{
+            background:#7f1d1d;
+            color:#fecaca;
+            padding:10px;
+            border-radius:8px;
+            margin-bottom:20px;
+            text-align:center;
+        }
+
+        .input-box{
+            margin-bottom:20px;
+        }
+
+        .input-box label{
+            display:block;
+            margin-bottom:8px;
+            color:#cbd5e1;
+        }
+
+        .input-box input{
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:8px;
+            outline:none;
+            background:#0f172a;
+            color:white;
+            border:1px solid #334155;
+        }
+
+        .input-box input:focus{
+            border-color:#38bdf8;
+        }
+
+        button{
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:8px;
+            background:#38bdf8;
+            color:#0f172a;
+            font-weight:bold;
+            cursor:pointer;
+            margin-top:10px;
+        }
+
+        button:hover{
+            background:#7dd3fc;
+        }
+
+        .footer-link{
+            display:block;
+            text-align:center;
+            margin-top:20px;
+            text-decoration:none;
+            color:#94a3b8;
+        }
+
+        .footer-link span{
+            color:#38bdf8;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Create Account</h1>
+
+    <p>Signup to continue</p>
+
+    {% if error %}
+    <div class="error-msg">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <div class="input-box">
+
+            <label>Username</label>
+
+            <input type="text"
+                   name="username"
+                   placeholder="Enter Username"
+                   required>
+
+        </div>
+
+        <div class="input-box">
+
+            <label>Email</label>
+
+            <input type="email"
+                   name="email"
+                   placeholder="Enter Email"
+                   required>
+
+        </div>
+
+        <div class="input-box">
+
+            <label>Password</label>
+
+            <input type="password"
+                   name="password"
+                   placeholder="Enter Password"
+                   required>
+
+        </div>
+
+        <button type="submit">
+            Signup
+        </button>
+
+    </form>
+
+    <a href="/login/"
+       class="footer-link">
+
+       Already have account?
+       <span>Login</span>
+
+    </a>
+
+</div>
+
+</body>
+</html>

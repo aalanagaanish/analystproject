@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+
+    <style>
+
+        body{
+            background:#0f172a;
+            color:white;
+            font-family:Arial;
+            padding:40px;
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:40px;
+        }
+
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
+            gap:20px;
+        }
+
+        .card{
+            background:#1e293b;
+            padding:20px;
+            border-radius:15px;
+        }
+
+        img{
+            width:100%;
+            border-radius:10px;
+        }
+
+        a{
+            color:#4ade80;
+            display:block;
+            margin-top:30px;
+            text-align:center;
+            text-decoration:none;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<h1>Visualization Results</h1>
+
+<div class="grid">
+
+    {% for chart in charts %}
+
+    <div class="card">
+        <img src="{{ chart }}">
+    </div>
+
+    {% endfor %}
+
+</div>
+
+<a href="{% url 'visualize' %}">Create More Charts</a>
+
+</body>
+</html>
